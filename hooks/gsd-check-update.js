@@ -16,11 +16,11 @@ const cwd = process.cwd();
 function detectConfigDir(baseDir) {
   // Check env override first (supports multi-account setups)
   const envDir = process.env.CLAUDE_CONFIG_DIR;
-  if (envDir && fs.existsSync(path.join(envDir, 'get-shit-done', 'VERSION'))) {
+  if (envDir && fs.existsSync(path.join(envDir, 'get-stuff-done', 'VERSION'))) {
     return envDir;
   }
   for (const dir of ['.config/opencode', '.opencode', '.gemini', '.claude']) {
-    if (fs.existsSync(path.join(baseDir, dir, 'get-shit-done', 'VERSION'))) {
+    if (fs.existsSync(path.join(baseDir, dir, 'get-stuff-done', 'VERSION'))) {
       return path.join(baseDir, dir);
     }
   }
@@ -33,8 +33,8 @@ const cacheDir = path.join(globalConfigDir, 'cache');
 const cacheFile = path.join(cacheDir, 'gsd-update-check.json');
 
 // VERSION file locations (check project first, then global)
-const projectVersionFile = path.join(projectConfigDir, 'get-shit-done', 'VERSION');
-const globalVersionFile = path.join(globalConfigDir, 'get-shit-done', 'VERSION');
+const projectVersionFile = path.join(projectConfigDir, 'get-stuff-done', 'VERSION');
+const globalVersionFile = path.join(globalConfigDir, 'get-stuff-done', 'VERSION');
 
 // Ensure cache directory exists
 if (!fs.existsSync(cacheDir)) {
@@ -65,10 +65,10 @@ const child = spawn(process.execPath, ['-e', `
   } catch (e) {}
 
   // Check for stale hooks — compare hook version headers against installed VERSION
-  // Hooks live inside get-shit-done/hooks/, not configDir/hooks/
+  // Hooks live inside get-stuff-done/hooks/, not configDir/hooks/
   let staleHooks = [];
   if (configDir) {
-    const hooksDir = path.join(configDir, 'get-shit-done', 'hooks');
+    const hooksDir = path.join(configDir, 'get-stuff-done', 'hooks');
     try {
       if (fs.existsSync(hooksDir)) {
         const hookFiles = fs.readdirSync(hooksDir).filter(f => f.startsWith('gsd-') && f.endsWith('.js'));
@@ -93,7 +93,7 @@ const child = spawn(process.execPath, ['-e', `
 
   let latest = null;
   try {
-    latest = execSync('npm view get-shit-done-cc version', { encoding: 'utf8', timeout: 10000, windowsHide: true }).trim();
+    latest = execSync('npm view get-stuff-done-cc version', { encoding: 'utf8', timeout: 10000, windowsHide: true }).trim();
   } catch (e) {}
 
   const result = {

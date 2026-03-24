@@ -166,11 +166,11 @@ All tests use temp directories and clean up after themselves. Follow existing `n
 | Command: new-workspace | `commands/gsd/new-workspace.md` |
 | Command: list-workspaces | `commands/gsd/list-workspaces.md` |
 | Command: remove-workspace | `commands/gsd/remove-workspace.md` |
-| Workflow: new-workspace | `get-shit-done/workflows/new-workspace.md` |
-| Workflow: list-workspaces | `get-shit-done/workflows/list-workspaces.md` |
-| Workflow: remove-workspace | `get-shit-done/workflows/remove-workspace.md` |
-| Init function | `get-shit-done/bin/lib/init.cjs` (add `cmdInitNewWorkspace`, `cmdInitListWorkspaces`, `cmdInitRemoveWorkspace`) |
-| Routing | `get-shit-done/bin/gsd-tools.cjs` (add cases to init switch) |
+| Workflow: new-workspace | `get-stuff-done/workflows/new-workspace.md` |
+| Workflow: list-workspaces | `get-stuff-done/workflows/list-workspaces.md` |
+| Workflow: remove-workspace | `get-stuff-done/workflows/remove-workspace.md` |
+| Init function | `get-stuff-done/bin/lib/init.cjs` (add `cmdInitNewWorkspace`, `cmdInitListWorkspaces`, `cmdInitRemoveWorkspace`) |
+| Routing | `get-stuff-done/bin/gsd-tools.cjs` (add cases to init switch) |
 | Tests | `tests/workspace.test.cjs` |
 
 ## Design Decisions
